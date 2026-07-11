@@ -38,5 +38,18 @@ function renderMatches() {
   });
 }
 
+function setupGuideToggle() {
+  const button = document.getElementById("guide-toggle");
+  const content = document.getElementById("guide-content");
+
+  button.addEventListener("click", () => {
+    const willShow = content.hidden;
+    content.hidden = !willShow;
+    button.textContent = willShow ? "Hide" : "Show";
+    button.setAttribute("aria-expanded", String(willShow));
+  });
+}
+
 renderNewsFlash();
 renderMatches();
+setupGuideToggle();

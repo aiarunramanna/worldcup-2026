@@ -24,6 +24,93 @@
   </main>
 
   <footer>
+    <div class="guide-header">
+      <h2 class="guide-title">Full BMAD Pipeline Guide</h2>
+      <button id="guide-toggle" class="guide-toggle" type="button" aria-expanded="false" aria-controls="guide-content">Show</button>
+    </div>
+
+    <div id="guide-content" class="guide-content" hidden>
+      <p>One heads-up before we start: exact command names shift a little between BMAD versions (<code>*agent pm</code> vs <code>/pm</code> vs a skill name like <code>bmad-agent-pm</code>). Whatever you have installed, <code>bmad-help</code> will always tell you the exact invocation &mdash; I'll use the general skill-name convention below, but treat <code>bmad-help</code> as your source of truth if something doesn't respond.</p>
+
+      <h3>Phase 0 &mdash; Install BMAD into this project</h3>
+      <p>BMAD installs per-project, so if this World Cup folder isn't already inside a BMAD-enabled repo:</p>
+      <pre><code>cd C:\tbizapp
+npx bmad-method install</code></pre>
+      <p>The installer will ask:</p>
+      <ul>
+        <li>Which modules? &rarr; choose <code>bmm</code> (BMad Method core &mdash; the agile agents)</li>
+        <li>Which IDE/tool? &rarr; <code>claude-code</code></li>
+        <li>Project type &rarr; generic/static site is fine</li>
+      </ul>
+      <p>This drops a <code>.bmad-core</code> (or <code>.claude/skills</code>) folder into your project with all the agent definitions. Restart Claude Code afterward so it picks up the new skills.</p>
+
+      <h3>Phase 1 &mdash; Analysis (Analyst agent, &quot;Mary&quot;)</h3>
+      <p>Invoke her:</p>
+      <pre><code>bmad-agent-analyst</code></pre>
+      <p>This is the step Quick Flow skips entirely &mdash; worth doing here just to see it. Mary will interview you rather than just take orders. Expect questions like: Who's this page for? What's the success criteria? What's out of scope? Answer honestly even though it's a small project:</p>
+      <ul>
+        <li>Purpose: a page you can point people to, and a learning exercise in BMAD</li>
+        <li>Audience: you + anyone you send the link to</li>
+        <li>Constraints: static only, must live at <code>aiarunramanna.github.io/worldcup-2026/</code>, no backend, no build step</li>
+        <li>Success: correct schedule info, loads fast, readable on mobile</li>
+      </ul>
+      <p>Output: <code>docs/project-brief.md</code> &mdash; a short document capturing all of that. This becomes the input to everything downstream.</p>
+
+      <h3>Phase 2 &mdash; Planning (PM agent &quot;John&quot;, optionally UX agent &quot;Sally&quot;)</h3>
+      <pre><code>bmad-agent-pm</code></pre>
+      <p>John reads <code>project-brief.md</code> and turns it into a PRD (<code>docs/prd.md</code>) &mdash; this is the artifact BMAD cares most about getting right. Expect it to contain:</p>
+      <ul>
+        <li>Epic 1: Display Match Schedule &mdash; stories like &quot;show semifinal 1 details,&quot; &quot;show semifinal 2 details,&quot; &quot;show final details,&quot; each with Given/When/Then acceptance criteria</li>
+        <li>Epic 2: Publish &amp; Host &mdash; story for getting it live under the existing repo</li>
+        <li>Non-functional requirements: mobile-responsive, loads without JS errors, accurate as of build date</li>
+      </ul>
+      <p>Since this project has a UI, do the optional UX step too &mdash; it's part of full ceremony:</p>
+      <pre><code>bmad-agent-ux</code></pre>
+      <p>Sally produces <code>docs/ux-spec.md</code>: layout (single-column card per match), typography, color choices, mobile breakpoint behavior. For something this small it'll be short, but you'll see how she uses the PRD as her input.</p>
+
+      <h3>Phase 3 &mdash; Solutioning (Architect &quot;Winston&quot;, then PO for sharding)</h3>
+      <pre><code>bmad-agent-architect</code></pre>
+      <p>Winston reads the PRD + UX spec and makes the technical calls, documented as ADRs in <code>docs/architecture.md</code>. For this project expect something like:</p>
+      <ul>
+        <li>ADR-001: No JS framework &mdash; static single-page, plain HTML/CSS, since PRD specifies no backend and no build step</li>
+        <li>File structure: <code>worldcup-2026/index.html</code>, inline <code>&lt;style&gt;</code> (or a co-located <code>style.css</code>)</li>
+        <li>Deployment target: subfolder of the existing <code>aiarunramanna.github.io</code> repo (already Pages-enabled, no new config needed)</li>
+      </ul>
+      <p>Then the PO agent shards the PRD + architecture into implementation-ready files and checks they're actually ready to build from:</p>
+      <pre><code>bmad-agent-po</code></pre>
+      <p>This produces <code>docs/epics/epic-1-match-schedule.md</code> and <code>docs/epics/epic-2-publish-hosting.md</code>, and runs a Definition-of-Ready check &mdash; does every story have clear acceptance criteria and an unambiguous architecture to build against? If something's fuzzy, the PO kicks it back rather than letting it into implementation half-specified. This is the checkpoint that's supposed to prevent the &quot;Dev agent guesses wrong&quot; problem.</p>
+
+      <h3>Phase 4 &mdash; Implementation loop (SM &rarr; Dev &rarr; QA, per story)</h3>
+      <p>This is the part that repeats &mdash; for each story, one at a time:</p>
+      <ol>
+        <li>
+          <strong>Scrum Master creates the story</strong>
+          <pre><code>bmad-agent-sm</code></pre>
+          <p>Invoke something like <code>*create-story</code> against Epic 1's first story. The SM (traditionally &quot;Bob&quot;) writes a self-contained story file &mdash; <code>docs/stories/story-1.1-display-schedule.md</code> &mdash; with the acceptance criteria and relevant architecture notes copied into the file, so the Dev agent doesn't need the whole project history in context.</p>
+        </li>
+        <li>
+          <strong>Dev implements &mdash; in a fresh chat</strong>
+          <p>Best practice here (and the whole point of story files): start a new Claude Code session so Dev isn't carrying baggage from the Analyst/PM/Architect conversation.</p>
+          <pre><code>bmad-agent-dev
+*dev-story docs/stories/story-1.1-display-schedule.md</code></pre>
+          <p>Amelia reads only that story file, implements it (writes/edits <code>worldcup-2026/index.html</code>), and checks her own work against the acceptance criteria before handing back.</p>
+        </li>
+        <li>
+          <strong>QA reviews</strong>
+          <p>Reviews the diff against the story's acceptance criteria and the PRD's non-functional requirements &mdash; accurate match info, mobile-responsive, no console errors. Comes back with a gate result: PASS, or FAIL with specific notes. FAIL sends it back to Dev; PASS means you commit:</p>
+          <pre><code>git add worldcup-2026
+git commit -m "Story 1.1: display match schedule"</code></pre>
+        </li>
+        <li>
+          <strong>Repeat</strong>
+          <p>Repeat for story 1.2 (&quot;News Flash&quot; note), 1.3 (final match details), etc., then move to Epic 2's story (subfolder &rarr; push &rarr; verify live under GitHub Pages).</p>
+        </li>
+      </ol>
+
+      <h3>Optional: Party Mode</h3>
+      <p>Worth trying once, since it's a distinctive BMAD feature: <code>bmad-party-mode</code> puts multiple agents in one session so they debate a decision together &mdash; e.g., pull in Architect + PM to argue out whether the ADR above (no JS framework) is right, instead of you relaying between them manually.</p>
+    </div>
+
     <p>Built while learning BMAD + Claude Code.</p>
   </footer>
 

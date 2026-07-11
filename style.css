@@ -117,3 +117,97 @@ footer {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.85rem;
 }
+
+.guide-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.guide-title {
+  margin: 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.guide-toggle {
+  background: var(--gold);
+  color: var(--field-green-dark);
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.guide-toggle:hover {
+  filter: brightness(1.08);
+}
+
+.guide-content {
+  text-align: left;
+  background: var(--white);
+  color: #222;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.guide-content h3 {
+  margin: 1.5rem 0 0.5rem;
+  color: var(--field-green-dark);
+}
+
+.guide-content h3:first-child {
+  margin-top: 0;
+}
+
+.guide-content p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+.guide-content ul,
+.guide-content ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.guide-content li {
+  margin-bottom: 0.5rem;
+}
+
+.guide-content pre {
+  background: #1e1e1e;
+  color: #f2f2f2;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.guide-content code {
+  font-family: "Consolas", "Monaco", monospace;
+}
+
+.guide-content p code,
+.guide-content li code {
+  background: #eee;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  color: #b3541e;
+}
+
+.guide-content strong {
+  color: var(--field-green-dark);
+}
