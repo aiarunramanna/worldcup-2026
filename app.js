@@ -1,3 +1,21 @@
+function renderNewsFlash() {
+  const dateEl = document.getElementById("today-date");
+  const today = new Date();
+  dateEl.textContent = today.toLocaleDateString(undefined, {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  const list = document.getElementById("recap-list");
+  matches.forEach((match) => {
+    const item = document.createElement("li");
+    item.textContent = `${match.round}: ${match.recap}`;
+    list.appendChild(item);
+  });
+}
+
 function renderMatches() {
   const container = document.getElementById("matches");
 
@@ -20,4 +38,5 @@ function renderMatches() {
   });
 }
 
+renderNewsFlash();
 renderMatches();

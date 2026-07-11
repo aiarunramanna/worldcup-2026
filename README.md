@@ -28,6 +28,10 @@ and refresh the page in your browser. That's it - `index.html` and `app.js` don'
 to change. Keep the quotes, commas, and key names (`round`, `day`, `teamA`, etc.)
 exactly as they are - only change the text inside the quotes.
 
+While you're in there, also replace each match's `recap` sentence with a real one
+explaining how those teams reached that match - it shows up in the "News Flash" box
+at the top of the page, along with today's date (which updates itself automatically).
+
 **Two updates, not one:** the semifinal teams will be known tonight, but the Final's
 `"TBD"` / `"TBD"` can't be filled in until both semifinals are finished (July 15) and
 the two winners are known. Come back and edit that entry once they are.
