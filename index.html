@@ -25,90 +25,344 @@
 
   <footer>
     <div class="guide-header">
-      <h2 class="guide-title">Full BMAD Pipeline Guide</h2>
+      <h2 class="guide-title">Meet My Scrum Team</h2>
       <button id="guide-toggle" class="guide-toggle" type="button" aria-expanded="false" aria-controls="guide-content">Show</button>
     </div>
 
     <div id="guide-content" class="guide-content" hidden>
-      <p>One heads-up before we start: exact command names shift a little between BMAD versions (<code>*agent pm</code> vs <code>/pm</code> vs a skill name like <code>bmad-agent-pm</code>). Whatever you have installed, <code>bmad-help</code> will always tell you the exact invocation &mdash; I'll use the general skill-name convention below, but treat <code>bmad-help</code> as your source of truth if something doesn't respond.</p>
+      <div class="team-member">
+        <h3>&#128084; Mary &mdash; Product Manager</h3>
+        <p><strong>Role:</strong> Product Manager (PM)</p>
+        <h4>What Mary is great at</h4>
+        <ul>
+          <li>Turning vague ideas into clear product direction.</li>
+          <li>Writing excellent Product Briefs and Product Requirements Documents (PRDs).</li>
+          <li>Understanding customers and business goals.</li>
+          <li>Prioritizing features.</li>
+          <li>Defining scope.</li>
+          <li>Identifying risks before development begins.</li>
+          <li>Making sure everyone understands what is being built and why.</li>
+        </ul>
+        <h4>How Mary interacts with the team</h4>
+        <p><strong>Works closely with Dave (Human Stakeholder)</strong></p>
+        <ul>
+          <li>Asks many questions.</li>
+          <li>Clarifies business goals.</li>
+          <li>Challenges assumptions.</li>
+          <li>Makes sure nothing important is missing.</li>
+        </ul>
+        <p><strong>Works with Sarah (Architect)</strong></p>
+        <ul>
+          <li>Hands over a polished PRD.</li>
+          <li>Answers business questions.</li>
+          <li>Explains priorities.</li>
+        </ul>
+        <p><strong>Works with Alex (Scrum Master)</strong></p>
+        <ul>
+          <li>Explains priorities.</li>
+          <li>Helps decide MVP vs future features.</li>
+        </ul>
+        <p><strong>Works with Developers</strong></p>
+        <ul>
+          <li>Clarifies requirements.</li>
+          <li>Resolves ambiguities.</li>
+        </ul>
+        <h4>Personality</h4>
+        <p>Mary is incredibly organized. She hates ambiguity and would rather ask ten extra questions than let the team build the wrong thing. She thinks like both a customer and a business owner.</p>
+        <h4>Compliment</h4>
+        <p>Mary has an exceptional ability to turn scattered ideas into a clear, actionable vision. She gives the entire team confidence because everyone knows exactly what success looks like.</p>
+      </div>
+      <hr />
 
-      <h3>Phase 0 &mdash; Install BMAD into this project</h3>
-      <p>BMAD installs per-project, so if this World Cup folder isn't already inside a BMAD-enabled repo:</p>
-      <pre><code>cd C:\tbizapp
-npx bmad-method install</code></pre>
-      <p>The installer will ask:</p>
-      <ul>
-        <li>Which modules? &rarr; choose <code>bmm</code> (BMad Method core &mdash; the agile agents)</li>
-        <li>Which IDE/tool? &rarr; <code>claude-code</code></li>
-        <li>Project type &rarr; generic/static site is fine</li>
-      </ul>
-      <p>This drops a <code>.bmad-core</code> (or <code>.claude/skills</code>) folder into your project with all the agent definitions. Restart Claude Code afterward so it picks up the new skills.</p>
+      <div class="team-member">
+        <h3>&#127959;&#65039; Sarah &mdash; Solution Architect</h3>
+        <p><strong>Role:</strong> Architect</p>
+        <h4>What Sarah is great at</h4>
+        <ul>
+          <li>Designing software architecture.</li>
+          <li>Choosing technologies.</li>
+          <li>Breaking systems into components.</li>
+          <li>API design.</li>
+          <li>Database design.</li>
+          <li>Security.</li>
+          <li>Scalability.</li>
+          <li>Performance.</li>
+          <li>Identifying technical risks.</li>
+        </ul>
+        <h4>How Sarah interacts</h4>
+        <p><strong>Receives</strong></p>
+        <ul>
+          <li>Product Brief from Mary</li>
+        </ul>
+        <p><strong>Works with</strong></p>
+        <p><strong>Alex</strong></p>
+        <ul>
+          <li>Explains implementation strategy.</li>
+        </ul>
+        <p><strong>Developers</strong></p>
+        <ul>
+          <li>Answers technical questions.</li>
+          <li>Reviews architecture.</li>
+          <li>Prevents technical debt.</li>
+        </ul>
+        <p><strong>QA</strong></p>
+        <ul>
+          <li>Explains expected system behavior.</li>
+        </ul>
+        <h4>Personality</h4>
+        <p>Sarah thinks several years into the future. She constantly asks:</p>
+        <p><em>&quot;Will this still work when we have 10 million users?&quot;</em></p>
+        <h4>Compliment</h4>
+        <p>Sarah has a remarkable ability to simplify incredibly complex systems. Her designs give developers a solid foundation and help the team avoid costly mistakes later.</p>
+      </div>
+      <hr />
 
-      <h3>Phase 1 &mdash; Analysis (Analyst agent, &quot;Mary&quot;)</h3>
-      <p>Invoke her:</p>
-      <pre><code>bmad-agent-analyst</code></pre>
-      <p>This is the step Quick Flow skips entirely &mdash; worth doing here just to see it. Mary will interview you rather than just take orders. Expect questions like: Who's this page for? What's the success criteria? What's out of scope? Answer honestly even though it's a small project:</p>
-      <ul>
-        <li>Purpose: a page you can point people to, and a learning exercise in BMAD</li>
-        <li>Audience: you + anyone you send the link to</li>
-        <li>Constraints: static only, must live at <code>aiarunramanna.github.io/worldcup-2026/</code>, no backend, no build step</li>
-        <li>Success: correct schedule info, loads fast, readable on mobile</li>
-      </ul>
-      <p>Output: <code>docs/project-brief.md</code> &mdash; a short document capturing all of that. This becomes the input to everything downstream.</p>
+      <div class="team-member">
+        <h3>&#128203; Alex &mdash; Scrum Master</h3>
+        <h4>What Alex is great at</h4>
+        <ul>
+          <li>Sprint planning.</li>
+          <li>Breaking work into stories.</li>
+          <li>Estimation.</li>
+          <li>Organizing backlogs.</li>
+          <li>Removing blockers.</li>
+          <li>Sprint reviews.</li>
+          <li>Sprint retrospectives.</li>
+        </ul>
+        <h4>How Alex interacts</h4>
+        <p><strong>Mary</strong></p>
+        <ul>
+          <li>Converts priorities into sprint work.</li>
+        </ul>
+        <p><strong>Sarah</strong></p>
+        <ul>
+          <li>Turns architecture into implementation tasks.</li>
+        </ul>
+        <p><strong>Developers</strong></p>
+        <ul>
+          <li>Helps remove obstacles.</li>
+        </ul>
+        <p><strong>QA</strong></p>
+        <ul>
+          <li>Coordinates testing schedule.</li>
+        </ul>
+        <h4>Personality</h4>
+        <p>Alex is the team's organizer. He keeps everyone moving while protecting the team from unnecessary distractions.</p>
+        <h4>Compliment</h4>
+        <p>Alex has a talent for bringing order to complex projects. His planning keeps the team productive without sacrificing quality or burning people out.</p>
+      </div>
+      <hr />
 
-      <h3>Phase 2 &mdash; Planning (PM agent &quot;John&quot;, optionally UX agent &quot;Sally&quot;)</h3>
-      <pre><code>bmad-agent-pm</code></pre>
-      <p>John reads <code>project-brief.md</code> and turns it into a PRD (<code>docs/prd.md</code>) &mdash; this is the artifact BMAD cares most about getting right. Expect it to contain:</p>
-      <ul>
-        <li>Epic 1: Display Match Schedule &mdash; stories like &quot;show semifinal 1 details,&quot; &quot;show semifinal 2 details,&quot; &quot;show final details,&quot; each with Given/When/Then acceptance criteria</li>
-        <li>Epic 2: Publish &amp; Host &mdash; story for getting it live under the existing repo</li>
-        <li>Non-functional requirements: mobile-responsive, loads without JS errors, accurate as of build date</li>
-      </ul>
-      <p>Since this project has a UI, do the optional UX step too &mdash; it's part of full ceremony:</p>
-      <pre><code>bmad-agent-ux</code></pre>
-      <p>Sally produces <code>docs/ux-spec.md</code>: layout (single-column card per match), typography, color choices, mobile breakpoint behavior. For something this small it'll be short, but you'll see how she uses the PRD as her input.</p>
+      <div class="team-member">
+        <h3>&#128187; James &mdash; Developer</h3>
+        <h4>What James is great at</h4>
+        <ul>
+          <li>Writing clean code.</li>
+          <li>Implementing features.</li>
+          <li>APIs.</li>
+          <li>Frontend.</li>
+          <li>Backend.</li>
+          <li>Debugging.</li>
+          <li>Refactoring.</li>
+          <li>Unit tests.</li>
+        </ul>
+        <h4>How James interacts</h4>
+        <p><strong>Sarah</strong></p>
+        <ul>
+          <li>Asks architecture questions.</li>
+        </ul>
+        <p><strong>Alex</strong></p>
+        <ul>
+          <li>Estimates work.</li>
+        </ul>
+        <p><strong>QA</strong></p>
+        <ul>
+          <li>Fixes bugs.</li>
+        </ul>
+        <p><strong>Mary</strong></p>
+        <ul>
+          <li>Clarifies edge cases.</li>
+        </ul>
+        <h4>Personality</h4>
+        <p>James enjoys solving puzzles. He wants requirements to be crystal clear before writing code.</p>
+        <h4>Compliment</h4>
+        <p>James consistently transforms ideas into reliable software. His attention to detail makes the product stronger with every feature he builds.</p>
+      </div>
+      <hr />
 
-      <h3>Phase 3 &mdash; Solutioning (Architect &quot;Winston&quot;, then PO for sharding)</h3>
-      <pre><code>bmad-agent-architect</code></pre>
-      <p>Winston reads the PRD + UX spec and makes the technical calls, documented as ADRs in <code>docs/architecture.md</code>. For this project expect something like:</p>
-      <ul>
-        <li>ADR-001: No JS framework &mdash; static single-page, plain HTML/CSS, since PRD specifies no backend and no build step</li>
-        <li>File structure: <code>worldcup-2026/index.html</code>, inline <code>&lt;style&gt;</code> (or a co-located <code>style.css</code>)</li>
-        <li>Deployment target: subfolder of the existing <code>aiarunramanna.github.io</code> repo (already Pages-enabled, no new config needed)</li>
-      </ul>
-      <p>Then the PO agent shards the PRD + architecture into implementation-ready files and checks they're actually ready to build from:</p>
-      <pre><code>bmad-agent-po</code></pre>
-      <p>This produces <code>docs/epics/epic-1-match-schedule.md</code> and <code>docs/epics/epic-2-publish-hosting.md</code>, and runs a Definition-of-Ready check &mdash; does every story have clear acceptance criteria and an unambiguous architecture to build against? If something's fuzzy, the PO kicks it back rather than letting it into implementation half-specified. This is the checkpoint that's supposed to prevent the &quot;Dev agent guesses wrong&quot; problem.</p>
+      <div class="team-member">
+        <h3>&#129514; Emily &mdash; QA Engineer</h3>
+        <h4>What Emily is great at</h4>
+        <ul>
+          <li>Finding bugs.</li>
+          <li>Test planning.</li>
+          <li>Regression testing.</li>
+          <li>Edge cases.</li>
+          <li>Automation.</li>
+          <li>Ensuring quality.</li>
+        </ul>
+        <h4>How Emily interacts</h4>
+        <p><strong>Developers</strong></p>
+        <ul>
+          <li>Reports issues.</li>
+          <li>Verifies fixes.</li>
+        </ul>
+        <p><strong>Alex</strong></p>
+        <ul>
+          <li>Helps estimate testing.</li>
+        </ul>
+        <p><strong>Mary</strong></p>
+        <ul>
+          <li>Confirms requirements were met.</li>
+        </ul>
+        <h4>Personality</h4>
+        <p>Emily naturally asks, &quot;What happens if someone does the unexpected?&quot; She enjoys uncovering issues before customers ever see them.</p>
+        <h4>Compliment</h4>
+        <p>Emily has an excellent eye for detail and consistently improves the product's reliability. Her thorough testing builds confidence across the entire team.</p>
+      </div>
+      <hr />
 
-      <h3>Phase 4 &mdash; Implementation loop (SM &rarr; Dev &rarr; QA, per story)</h3>
-      <p>This is the part that repeats &mdash; for each story, one at a time:</p>
-      <ol>
-        <li>
-          <strong>Scrum Master creates the story</strong>
-          <pre><code>bmad-agent-sm</code></pre>
-          <p>Invoke something like <code>*create-story</code> against Epic 1's first story. The SM (traditionally &quot;Bob&quot;) writes a self-contained story file &mdash; <code>docs/stories/story-1.1-display-schedule.md</code> &mdash; with the acceptance criteria and relevant architecture notes copied into the file, so the Dev agent doesn't need the whole project history in context.</p>
-        </li>
-        <li>
-          <strong>Dev implements &mdash; in a fresh chat</strong>
-          <p>Best practice here (and the whole point of story files): start a new Claude Code session so Dev isn't carrying baggage from the Analyst/PM/Architect conversation.</p>
-          <pre><code>bmad-agent-dev
-*dev-story docs/stories/story-1.1-display-schedule.md</code></pre>
-          <p>Amelia reads only that story file, implements it (writes/edits <code>worldcup-2026/index.html</code>), and checks her own work against the acceptance criteria before handing back.</p>
-        </li>
-        <li>
-          <strong>QA reviews</strong>
-          <p>Reviews the diff against the story's acceptance criteria and the PRD's non-functional requirements &mdash; accurate match info, mobile-responsive, no console errors. Comes back with a gate result: PASS, or FAIL with specific notes. FAIL sends it back to Dev; PASS means you commit:</p>
-          <pre><code>git add worldcup-2026
-git commit -m "Story 1.1: display match schedule"</code></pre>
-        </li>
-        <li>
-          <strong>Repeat</strong>
-          <p>Repeat for story 1.2 (&quot;News Flash&quot; note), 1.3 (final match details), etc., then move to Epic 2's story (subfolder &rarr; push &rarr; verify live under GitHub Pages).</p>
-        </li>
-      </ol>
+      <div class="team-member">
+        <h3>&#127912; Olivia &mdash; UX Designer</h3>
+        <h4>What Olivia is great at</h4>
+        <ul>
+          <li>User experience.</li>
+          <li>Wireframes.</li>
+          <li>User flows.</li>
+          <li>Visual hierarchy.</li>
+          <li>Accessibility.</li>
+          <li>Prototypes.</li>
+          <li>User research.</li>
+        </ul>
+        <h4>How Olivia interacts</h4>
+        <p><strong>Mary</strong></p>
+        <ul>
+          <li>Understands user needs.</li>
+        </ul>
+        <p><strong>Sarah</strong></p>
+        <ul>
+          <li>Checks technical feasibility.</li>
+        </ul>
+        <p><strong>Developers</strong></p>
+        <ul>
+          <li>Explains interactions.</li>
+        </ul>
+        <p><strong>QA</strong></p>
+        <ul>
+          <li>Verifies UI behavior.</li>
+        </ul>
+        <h4>Personality</h4>
+        <p>Olivia always asks:</p>
+        <p><em>&quot;Will this feel intuitive to someone using it for the first time?&quot;</em></p>
+        <h4>Compliment</h4>
+        <p>Olivia creates experiences that feel effortless for users. Her designs balance aesthetics with usability in a way that makes the product enjoyable to use.</p>
+      </div>
+      <hr />
 
-      <h3>Optional: Party Mode</h3>
-      <p>Worth trying once, since it's a distinctive BMAD feature: <code>bmad-party-mode</code> puts multiple agents in one session so they debate a decision together &mdash; e.g., pull in Architect + PM to argue out whether the ADR above (no JS framework) is right, instead of you relaying between them manually.</p>
+      <div class="team-member">
+        <h3>&#128202; Ethan &mdash; Business Analyst</h3>
+        <h4>What Ethan is great at</h4>
+        <ul>
+          <li>Requirements gathering.</li>
+          <li>Business processes.</li>
+          <li>Stakeholder interviews.</li>
+          <li>Documentation.</li>
+          <li>Gap analysis.</li>
+          <li>Acceptance criteria.</li>
+        </ul>
+        <h4>How Ethan interacts</h4>
+        <p><strong>Dave</strong></p>
+        <ul>
+          <li>Interviews stakeholders.</li>
+        </ul>
+        <p><strong>Mary</strong></p>
+        <ul>
+          <li>Refines requirements.</li>
+        </ul>
+        <p><strong>Developers</strong></p>
+        <ul>
+          <li>Clarifies business rules.</li>
+        </ul>
+        <p><strong>QA</strong></p>
+        <ul>
+          <li>Defines acceptance tests.</li>
+        </ul>
+        <h4>Personality</h4>
+        <p>Ethan enjoys uncovering the details that others overlook. He keeps the project aligned with real business needs.</p>
+        <h4>Compliment</h4>
+        <p>Ethan asks thoughtful questions that reveal important insights early. His careful analysis helps the team make informed decisions with confidence.</p>
+      </div>
+      <hr />
+
+      <div class="team-member">
+        <h3>&#128640; Sophia &mdash; DevOps Engineer</h3>
+        <h4>What Sophia is great at</h4>
+        <ul>
+          <li>CI/CD.</li>
+          <li>Infrastructure.</li>
+          <li>Docker.</li>
+          <li>Kubernetes.</li>
+          <li>Cloud deployment.</li>
+          <li>Monitoring.</li>
+          <li>Security.</li>
+          <li>Automation.</li>
+        </ul>
+        <h4>How Sophia interacts</h4>
+        <p><strong>Developers</strong></p>
+        <ul>
+          <li>Builds deployment pipelines.</li>
+        </ul>
+        <p><strong>QA</strong></p>
+        <ul>
+          <li>Creates testing environments.</li>
+        </ul>
+        <p><strong>Sarah</strong></p>
+        <ul>
+          <li>Implements infrastructure design.</li>
+        </ul>
+        <p><strong>Alex</strong></p>
+        <ul>
+          <li>Coordinates releases.</li>
+        </ul>
+        <h4>Personality</h4>
+        <p>Sophia believes deployment should be routine, reliable, and automated rather than stressful or manual.</p>
+        <h4>Compliment</h4>
+        <p>Sophia makes delivering software feel smooth and dependable. Her automation reduces friction so the team can focus on building great products.</p>
+      </div>
+      <hr />
+
+      <div class="team-member">
+        <h3>&#128200; Liam &mdash; Product Owner</h3>
+        <h4>What Liam is great at</h4>
+        <ul>
+          <li>Prioritizing the backlog.</li>
+          <li>Making feature trade-offs.</li>
+          <li>Defining value.</li>
+          <li>Accepting completed work.</li>
+          <li>Representing customer interests.</li>
+        </ul>
+        <h4>How Liam interacts</h4>
+        <p><strong>Mary</strong></p>
+        <ul>
+          <li>Aligns on business strategy.</li>
+        </ul>
+        <p><strong>Alex</strong></p>
+        <ul>
+          <li>Orders sprint priorities.</li>
+        </ul>
+        <p><strong>Developers</strong></p>
+        <ul>
+          <li>Answers feature questions.</li>
+        </ul>
+        <p><strong>Stakeholders</strong></p>
+        <ul>
+          <li>Communicates progress.</li>
+        </ul>
+        <h4>Personality</h4>
+        <p>Liam constantly weighs value against effort, ensuring the team spends time on the most impactful work.</p>
+        <h4>Compliment</h4>
+        <p>Liam has a strong instinct for prioritization and helps the team maximize the value of every sprint. His decisions keep development focused on what matters most.</p>
+      </div>
     </div>
 
     <p>Built while learning BMAD + Claude Code.</p>

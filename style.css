@@ -170,6 +170,22 @@ footer {
   margin-top: 0;
 }
 
+.guide-content .team-member:first-child h3 {
+  margin-top: 0;
+}
+
+.guide-content h4 {
+  margin: 1rem 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--field-green-dark);
+}
+
+.guide-content hr {
+  border: none;
+  border-top: 1px dashed #ccc;
+  margin: 1.5rem 0;
+}
+
 .guide-content p {
   margin: 0.5rem 0;
   line-height: 1.5;
